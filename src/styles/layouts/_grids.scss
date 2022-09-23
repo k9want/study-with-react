@@ -1,0 +1,78 @@
+/*
+ * MOBILE (< 768px)----------------------
+ * fixture --------------------- sm(small)
+ * # of columns ---------------- 4
+ * gutter ---------------------- 0
+ * margin ---------------------- 16px
+ * container-size -------------- 100% - (16px * 2)
+ *
+ * TABLET (>= 769px)----------------------
+ * fixture --------------------- md(medium)
+ * # of columns ---------------- 12
+ * gutter ---------------------- 0
+ * margin ---------------------- 10px
+ * container-size -------------- 100% - (10px * 2)
+ *
+ * DESKTOP (>= 1025px)---------------------
+ * fixture --------------------- lg(large)
+ * # of columns ---------------- 12
+ * unit ------------------------ 
+ * gutter ---------------------- 0
+ * margin ---------------------- auto
+ * container-size -------------- 100% 
+ * max-container-size ---------- 1200px
+*/
+
+//gutter값은 동일하니까
+
+$sm-columns: 4;
+$sm-margin: 16px;
+
+$md-columns: 12;
+$md-margin: 10px;
+
+$lg-columns: 12;
+$lg-max-container: 1200px;
+
+.container {
+  width: 100%;
+  padding: $sm-margin;
+  margin: 0 auto;
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  //.col-sm-1 .col-md-2 .col-lg-3
+  [class^='col-'] {
+  }
+
+  @for $i from 1 through $sm-columns {
+    .col-sm-#{$i} {
+      width: percentage($i / $sm-columns);
+    }
+  }
+
+  //TABLET
+  @include responsive(T) {
+    padding: 0 $md-margin;
+
+    @for $i from 1 through $md-columns {
+      .col-md-#{$i} {
+        width: percentage($i / $md-columns);
+      }
+    }
+  }
+
+  //DESKTOP
+  @include responsive(D) {
+    max-width: $lg-max-container;
+
+    @for $i from 1 through $lg-columns {
+      .col-lg-#{$i} {
+        width: percentage($i / $lg-columns);
+      }
+    }
+  }
+}
