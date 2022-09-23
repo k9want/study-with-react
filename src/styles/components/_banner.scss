@@ -1,0 +1,66 @@
+.banner {
+  padding: 24px 12px;
+  width: 100%;
+  border-bottom: 0.5px solid #e9ecef;
+
+  .container {
+    height: inherit;
+  }
+
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: inherit;
+  }
+
+  &-left {
+    text-align: center;
+
+    h2 {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.2em;
+      margin-top: 16px;
+      margin-bottom: 16px;
+      color: #4a4a4a;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  &-right {
+    @include flexbox();
+  }
+
+  &-img {
+    @include flexbox();
+    width: 100%;
+    height: inherit;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 650px;
+      // max-height: 350px;
+    }
+  }
+
+  @include responsive('T') {
+    padding: 36px 0;
+
+    &-wrapper {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    &-left {
+      text-align: start;
+      margin-top: 0;
+      margin-left: 16px;
+    }
+  }
+}

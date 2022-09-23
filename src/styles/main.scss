@@ -3,6 +3,7 @@
 @import './constants/breakpoints';
 
 // base
+
 @import './base/normalize';
 @import './base/reset';
 @import './base/globals';
@@ -16,6 +17,12 @@
 // modules
 
 // components
+@import './components/header';
+@import './components/banner';
+@import './components/category';
+@import './components/filter';
+@import './components/card';
+@import './components/cardlist';
 
 // layouts
 @import './layouts/grids';
