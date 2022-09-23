@@ -533,7 +533,7 @@ ol {
 .card {
   white-space: nowrap;
   padding: 16px;
-  margin: 8px;
+  margin: 4px;
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
@@ -591,12 +591,15 @@ ol {
     margin-bottom: 8px; }
   @media screen and (min-width: 768px) {
     .card {
-      padding: 24px; }
+      padding: 24px;
+      margin: 8px; }
       .card-title {
         font-size: 1rem; } }
 
 main {
   background-color: #fafafa; }
+  main .container {
+    padding: 8px; }
 
 .card-list {
   display: flex;

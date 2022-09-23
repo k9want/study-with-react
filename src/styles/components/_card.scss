@@ -1,7 +1,7 @@
 .card {
   white-space: nowrap;
   padding: 16px;
-  margin: 8px;
+  margin: 4px;
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1%);
@@ -66,6 +66,7 @@
 
   @include responsive('T') {
     padding: 24px;
+    margin: 8px;
 
     &-title {
       font-size: 1rem;

@@ -2,7 +2,7 @@ import React from 'react'
 
 function Card() {
   return (
-    <div className="col-sm-2 col-md-3 ">
+    <div className="col-sm-2 col-md-4 col-lg-3">
       <div className="card">
         <div className="card-category">개발</div>
 
