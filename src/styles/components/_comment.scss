@@ -1,0 +1,41 @@
+.comment {
+  margin: 0 auto;
+  font-size: 0.875rem;
+  color: #5a5a5a;
+  max-width: 980px;
+  padding: 0 3rem;
+
+  &-wrapper {
+    border-bottom: 1px solid #dadada;
+  }
+
+  &-header {
+    @include flexbox(between);
+    margin-bottom: 1rem;
+  }
+
+  &-info {
+    margin-left: 2rem;
+  }
+
+  &-btn-item {
+    margin-left: 0.75rem;
+    cursor: pointer;
+
+    &:hover {
+      font-weight: 700;
+    }
+  }
+
+  &-description {
+    margin-bottom: 1.5rem;
+  }
+
+  @include responsive('T') {
+    padding: 1rem 3rem;
+
+    &-header {
+      justify-content: start;
+    }
+  }
+}
