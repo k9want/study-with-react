@@ -15,8 +15,8 @@ function Detail() {
           </div>
           <div className="detail-btn-group">
             <span>2022.04.10</span>
-            <span className="detail-btn-item update">수정</span>
-            <span className="detail-btn-item delete">삭제</span>
+            <span className="detail-btn-item comment-update">수정</span>
+            <span className="detail-btn-item comment-delete">삭제</span>
           </div>
         </div>
 
