@@ -12,7 +12,7 @@ function Main() {
             <div className="filter-item">댓글순</div>
           </div>
           <div className="filter-right">
-            <div className="filter-item is-active"> 모집 중인 글만 보기</div>
+            <div className="filter-item is-active"> 모집중인 글만 보기</div>
           </div>
         </div>
         <div className="card-list">

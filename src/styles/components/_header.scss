@@ -1,10 +1,11 @@
 .header {
+  position: relative;
   width: inherit;
   z-index: 75;
   box-shadow: 0 2px 4px 0 hsla(0deg, 0%, 81%, 0.5%);
+  background: #fff;
   height: 64px;
   min-height: unset;
-  position: relative;
 
   &-wrapper {
     @include flexbox(between);

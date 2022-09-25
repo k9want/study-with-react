@@ -2,7 +2,6 @@
   @include flexbox(start);
   padding-top: 4px;
   height: 64px;
-  background-color: #fafafa;
 
   &-btn-group {
     @include flexbox(start);
