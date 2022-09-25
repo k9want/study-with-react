@@ -828,6 +828,224 @@ main {
       .comment-header {
         justify-content: start; } }
 
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  background: rgba(11, 19, 30, 0.37);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 80;
+  overflow: hidden; }
+  .modal-wrapper {
+    padding: 24px;
+    margin: auto;
+    width: 360px !important;
+    height: 432px;
+    background-color: #fff;
+    border-radius: 6px;
+    z-index: 10; }
+  .modal-close-button {
+    display: flex;
+    align-items: center;
+    cursor: pointer; }
+    .modal-close-button svg {
+      margin-left: auto; }
+  .modal-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 24px 0 48px; }
+  .modal-form .modal-login-info {
+    margin-bottom: 12px; }
+  .modal-form-input {
+    width: 312px !important;
+    margin-top: 0 !important;
+    padding: 13px 12px;
+    line-height: 1.47;
+    font-size: 15px;
+    border: 1px solid #dee2e6;
+    letter-spacing: -0.3px;
+    border-radius: 4px;
+    background-color: #fff; }
+    .modal-form-input input::placeholder {
+      color: #dee2e6; }
+    .modal-form-input:focus-within {
+      border-color: #dadada; }
+    .modal-form-input.input-password {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; }
+      .modal-form-input.input-password .input-password-toggle-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer; }
+  .modal-form-input:first-child {
+    margin-bottom: 12px; }
+  .modal-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 312px;
+    height: 48px;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.43;
+    font-size: 14px;
+    letter-spacing: -0.3px;
+    margin: 12px 0 !important;
+    background-color: #dadada;
+    border-radius: 4px; }
+    .modal-button:hover {
+      background-color: #595959; }
+  .modal-more-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    margin-top: 0.5rem; }
+    .modal-more-action span {
+      font-size: 13px;
+      line-height: 1.38;
+      letter-spacing: -0.3px;
+      font-weight: 400;
+      color: #616568;
+      cursor: pointer; }
+      .modal-more-action span:hover {
+        text-decoration: underline; }
+
+.signup {
+  min-height: 800px;
+  width: 320px;
+  margin: 5rem auto; }
+  .signup-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 320px;
+    height: 676px;
+    margin: 24px auto auto; }
+  .signup-title {
+    color: #000a12;
+    font-size: 26px;
+    line-height: 1.5;
+    font-weight: 500;
+    text-align: center; }
+  .signup-description {
+    color: #000a12;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 24px; }
+  .signup-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+    width: inherit; }
+  .signup-form {
+    width: inherit; }
+    .signup-form-info {
+      margin-bottom: 16px; }
+    .signup-form-label {
+      color: #3e4042;
+      font-size: 14px;
+      line-height: 1.43;
+      letter-spacing: -0.3px;
+      font-weight: 400; }
+    .signup-form-input {
+      width: 320px;
+      height: 48px;
+      margin-top: 4px;
+      padding: 13px 12px;
+      line-height: 1.47;
+      font-size: 15px;
+      border: 1px solid #dee2e6;
+      letter-spacing: -0.3px;
+      border-radius: 4px;
+      background-color: #fff; }
+      .signup-form-input input {
+        padding: 0;
+        height: 20px; }
+      .signup-form-input input::placeholder {
+        letter-spacing: -0.3px;
+        color: #dee2e6; }
+      .signup-form-input:focus-within {
+        border-color: #dadada; }
+      .signup-form-input.input-password {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; }
+        .signup-form-input.input-password input::placeholder {
+          position: relative;
+          top: 3px; }
+        .signup-form-input.input-password .input-password-toggle-button {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer; }
+    .signup-form-password-wrapper:focus-within .signup-form-password-error-group {
+      display: flex; }
+    .signup-form-password-error-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      display: none; }
+    .signup-form-password-error {
+      display: block;
+      line-height: 1.5;
+      letter-spacing: -0.3px;
+      font-size: 12px;
+      font-weight: 400;
+      color: #abb0b5; }
+      .signup-form-password-error.is-error {
+        color: #e5503c; }
+      .signup-form-password-error.is-success {
+        color: #00c471; }
+    .signup-form-error {
+      display: block;
+      line-height: 1.5;
+      letter-spacing: -0.3px;
+      font-size: 12px;
+      font-weight: 400;
+      color: #e5503c; }
+  .signup-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: inherit;
+    height: 48px;
+    padding: 0 16px;
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.47;
+    letter-spacing: -0.3px;
+    font-weight: 700;
+    margin-top: 16px;
+    margin-bottom: 12px;
+    border: 1px solid #dadada;
+    border-radius: 4px;
+    background-color: #595959; }
+    .signup-button:disabled {
+      background-color: #dadada; }
+  @media screen and (min-width: 768px) {
+    .signup-main {
+      flex-direction: column; }
+    .signup-wrapper {
+      margin: 64px auto auto; }
+    .signup-social {
+      margin-bottom: 0; }
+    .signup-group {
+      margin-bottom: 0px; } }
+
 /*
  * MOBILE (< 768px)----------------------
  * fixture --------------------- sm(small)

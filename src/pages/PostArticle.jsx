@@ -1,9 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
+import useLoginModal from '../hooks/useLoginModal'
 
-function PostArticle() {
+function PostArticle(props) {
   return (
-    <main className="post-article">
+    <main className="post-article" style={useLoginModal(props.loginModal)}>
       <div className="container">
         <div className="input-wrapper">
           <input type="text" placeholder="제목을 입력해주세요" />
