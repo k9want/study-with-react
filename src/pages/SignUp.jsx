@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { url } from '../config/url'
 /*
 email, pwConfirm -> red
 pw -> grey / is.error(red) / is.success(green)
@@ -101,7 +102,7 @@ function SignUp() {
 
   const onClickButton = (e) => {
     axios
-      .post('http://localhost:3001/signup', {
+      .post(`${url}/signup`, {
         email: email,
         password: pw,
         passwordConfirm: pwConfirm,
@@ -109,7 +110,6 @@ function SignUp() {
       })
       .then((res) => {
         alert('회원가입이 완료되었습니다. ')
-        console.log(res.data.result.userId, res.data.result.jwt)
       })
       .catch((err) => {
         alert('회원가입에 실패하셨습니다.')

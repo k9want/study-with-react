@@ -1,12 +1,10 @@
+import axios, { Axios } from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
-
-const userDummy = {
-  email: 'test1234@naver.com',
-  pw: 'test1234!',
-}
-
+import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { url } from '../../config/url'
 function LoginModal(props) {
+  const navigate = useNavigate()
+
   const [email, setEmail] = useState('')
   const [pw, setPw] = useState('')
   const [emailValid, setEmailValid] = useState(false)
@@ -37,17 +35,25 @@ function LoginModal(props) {
     }
   }
 
-  const onClickLoginButton = () => {
-    if (!emailValid || !pwValid) {
-      alert('이메일 또는 비밀번호를 확인해주세요')
-      return
-    }
-
-    if (email === userDummy.email && pw === userDummy.pw) {
-      alert('로그인 성공했습니다.')
-    } else {
-      alert('이메일 또는 비밀번호를 확인해주세요')
-    }
+  const onClickLoginButton = (e) => {
+    axios
+      .post(`${url}/login`, {
+        email: email,
+        password: pw,
+      })
+      .then((res) => {
+        localStorage.setItem('jwt', JSON.stringify(res.data.result.jwt))
+        localStorage.setItem('userId', JSON.stringify(res.data.result.userId))
+        console.log(res.data.result)
+        // console.log(res.data.result.userId, res.data.result.jwt)
+        alert('로그인 성공')
+        props.setLoginModal(false)
+        navigate('/')
+      })
+      .catch((err) => {
+        alert('이메일과 비밀번호를 확인해주세요.')
+        console.log(err)
+      })
   }
 
   const onKeyPressInput = (e) => {

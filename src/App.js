@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import './App.css'
 import Header from './components/header/Header'
@@ -8,9 +8,29 @@ import Index from './pages/Index'
 import PostArticle from './pages/PostArticle'
 import SignUp from './pages/SignUp'
 import UserArticle from './pages/UserArticle'
+import axios from 'axios'
+import { url } from './config/url'
 
 function App() {
   const [loginModal, setLoginModal] = useState(false)
+  const [nickname, setNickname] = useState('')
+
+  useEffect(() => {
+    const accessToken = JSON.parse(localStorage.getItem('jwt'))
+    const userId = JSON.parse(localStorage.getItem('userId'))
+    if (!accessToken || !userId) return
+    axios
+      .get(`${url}/userId/${userId}`, {
+        headers: {
+          'x-access-token': accessToken,
+        },
+      })
+      .then((res) => {
+        console.log(userId)
+        console.log(res)
+        setNickname(res.data.result.nickname)
+      })
+  }, [])
 
   return (
     <div className="App">

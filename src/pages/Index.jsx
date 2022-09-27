@@ -12,9 +12,7 @@ function Index(props) {
     axios
       .get(`https://dev.studywith.site/articles/kind/${kindId}/recent`)
       .then((res) => {
-        console.log(res.data.result)
         setDataList(res.data.result)
-        console.log(dataList)
       })
       .catch(() => {
         console.log('새로고침을 해주세요')
