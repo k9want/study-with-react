@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 /*
 email, pwConfirm -> red
@@ -8,10 +9,12 @@ function SignUp() {
   const [email, setEmail] = useState('')
   const [pw, setPw] = useState('')
   const [pwConfirm, setPwConfirm] = useState('')
+  const [nickname, setnickname] = useState('')
 
   const [emailValid, setEmailValid] = useState(false)
   const [pwValid, setPwValid] = useState([false, false, false])
   const [pwConfirmValid, setPwConfirmValid] = useState(false)
+  const [nicknameValid, setnicknameValid] = useState(false)
 
   // 비밀번호 password <-> text
   const [hiddenPw, setHiddenPw] = useState(true)
@@ -87,17 +90,40 @@ function SignUp() {
     setPwValid(copyPwValid)
   }
 
+  const handleNickname = (e) => {
+    setnickname(e.target.value)
+    if (e.target.value.length < 2) {
+      setnicknameValid(false)
+    } else {
+      setnicknameValid(true)
+    }
+  }
+
   const onClickButton = (e) => {
-    alert('회원가입이 완료되었습니다. ')
+    axios
+      .post('http://localhost:3001/signup', {
+        email: email,
+        password: pw,
+        passwordConfirm: pwConfirm,
+        nickname: nickname,
+      })
+      .then((res) => {
+        alert('회원가입이 완료되었습니다. ')
+        console.log(res.data.result.userId, res.data.result.jwt)
+      })
+      .catch((err) => {
+        alert('회원가입에 실패하셨습니다.')
+        console.log(err)
+      })
   }
 
   useEffect(() => {
-    if (emailValid && pwValid && pwConfirmValid) {
+    if (emailValid && pwValid && pwConfirmValid && nicknameValid) {
       setNotAllow(false)
       return
     }
     setNotAllow(true)
-  }, [emailValid, pwValid, pwConfirmValid])
+  }, [emailValid, pwValid, pwConfirmValid, nicknameValid])
 
   return (
     <div className="container">
@@ -294,6 +320,27 @@ function SignUp() {
               </span>
             )}
           </div>
+
+          <div className="signup-form-info">
+            <label className="signup-form-label" for="nickname">
+              닉네임
+            </label>
+            <div className="signup-form-input">
+              <input
+                id="nickname"
+                type="text"
+                value={nickname}
+                placeholder="닉네임을 입력하세요"
+                onChange={handleNickname}
+              />
+            </div>
+            {!nicknameValid && nickname.length > 0 && (
+              <span className="signup-form-error">
+                닉네임은 최소 2자리 이상입니다.
+              </span>
+            )}
+          </div>
+
           <button
             type="submit"
             className="signup-button"

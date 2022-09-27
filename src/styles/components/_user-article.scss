@@ -1,0 +1,13 @@
+.user-article {
+  &-header {
+    margin: 1.5rem 1rem 1.125rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  @include responsive('T') {
+    &-header {
+      margin: 5rem 1rem 1.125rem;
+    }
+  }
+}

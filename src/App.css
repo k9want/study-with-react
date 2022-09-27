@@ -1046,6 +1046,15 @@ main {
     .signup-group {
       margin-bottom: 0px; } }
 
+.user-article-header {
+  margin: 1.5rem 1rem 1.125rem;
+  font-size: 1.25rem;
+  font-weight: 700; }
+
+@media screen and (min-width: 768px) {
+  .user-article-header {
+    margin: 5rem 1rem 1.125rem; } }
+
 /*
  * MOBILE (< 768px)----------------------
  * fixture --------------------- sm(small)

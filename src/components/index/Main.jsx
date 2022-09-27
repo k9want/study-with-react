@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Card from './Card'
 
-function Main() {
+function Main(props) {
   return (
     <main>
       <div className="container">
@@ -16,17 +16,9 @@ function Main() {
           </div>
         </div>
         <div className="card-list">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card /> <Card />
-          <Card /> <Card />
-          <Card /> <Card />
-          <Card /> <Card />
-          <Card />
+          {props.dataList.map((data, i) => {
+            return <Card data={data} />
+          })}
         </div>
       </div>
     </main>
