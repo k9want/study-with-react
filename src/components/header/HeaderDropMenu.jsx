@@ -13,6 +13,7 @@ function HeaderDropMenu() {
 
   return (
     <div className="header-dropmenu">
+      <div className="header-dropmenu-item">내 정보</div>
       <div className="header-dropmenu-item">내 모집 글</div>
       <div className="header-dropmenu-item">내 관심 글</div>
       <div className="header-dropmenu-item" onClick={onClickLogoutBtn}>

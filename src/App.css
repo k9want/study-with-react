@@ -715,7 +715,7 @@ main {
             height: 3rem;
             font-size: 1.5rem; }
             .post-article .container .input-wrapper input::placeholder {
-              font-size: 2rem; }
+              font-size: 1.5rem; }
         .post-article .container .select-wrapper {
           font-size: 1rem;
           margin-bottom: 1.5rem; }

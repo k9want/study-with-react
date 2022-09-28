@@ -31,6 +31,9 @@ function Header(props) {
       .then((res) => {
         setNickname(res.data.result.nickname)
       })
+      .catch((err) => {
+        console.log(err)
+      })
   })
 
   return (
