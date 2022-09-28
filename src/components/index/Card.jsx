@@ -10,7 +10,7 @@ function Card({ data }) {
   return (
     <div className="col-sm-2 col-md-4 col-lg-3">
       <div className="card" onClick={handleCard} value={data.articleId}>
-        <div className="card-category">개발</div>
+        <div className="card-category">{data.category}</div>
         <div className="card-title">{data.title}</div>
         <div className="card-footer">
           <div className="card-author">베네치아스토리</div>

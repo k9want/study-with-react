@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Route, Routes } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
@@ -13,24 +14,6 @@ import { url } from './config/url'
 
 function App() {
   const [loginModal, setLoginModal] = useState(false)
-  const [nickname, setNickname] = useState('')
-
-  useEffect(() => {
-    const accessToken = JSON.parse(localStorage.getItem('jwt'))
-    const userId = JSON.parse(localStorage.getItem('userId'))
-    if (!accessToken || !userId) return
-    axios
-      .get(`${url}/userId/${userId}`, {
-        headers: {
-          'x-access-token': accessToken,
-        },
-      })
-      .then((res) => {
-        console.log(userId)
-        console.log(res)
-        setNickname(res.data.result.nickname)
-      })
-  }, [])
 
   return (
     <div className="App">

@@ -11,19 +11,19 @@ function Index(props) {
 
   useEffect(() => {
     axios
-      .get(`https://dev.studywith.site/articles/kind/${kindId}/recent`)
+      .get(`${url}/articles/kind/${kindId}/recent`)
       .then((res) => {
         setDataList(res.data.result)
       })
       .catch(() => {
         console.log('새로고침을 해주세요')
       })
-  }, [])
+  }, [kindId])
 
   return (
     <div style={useLoginModal(props.loginModal)}>
       <Banner />
-      <Category />
+      <Category kindId={kindId} setKindId={setKindId} />
       <Main dataList={dataList} />
     </div>
   )
