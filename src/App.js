@@ -25,7 +25,7 @@ function App() {
           element={<PostArticle loginModal={loginModal} />}
         ></Route>
         <Route
-          path="/detail"
+          path="/articles/:articleId"
           element={<DetailArticle loginModal={loginModal} />}
         ></Route>
         <Route
