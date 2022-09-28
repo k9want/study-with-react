@@ -1,0 +1,28 @@
+.header {
+  &-dropmenu-wrapper {
+    position: relative;
+
+    .header-dropmenu {
+      position: absolute;
+      width: 100px;
+      top: 32px;
+      right: 0;
+      z-index: 72;
+      background-color: #fff;
+      // border: 1px solid #9e9e9e;
+      box-shadow: 0 2px 4px 0 hsla(0deg, 0%, 81%, 100%);
+
+      &-item {
+        color: #9e9e9e;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem;
+
+        &:hover {
+          color: #454545;
+        }
+      }
+    }
+  }
+}

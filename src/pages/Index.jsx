@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Banner from '../components/index/Banner'
 import Category from '../components/index/Category'
 import Main from '../components/index/Main'
+import { url } from '../config/url'
 import useLoginModal from '../hooks/useLoginModal'
 function Index(props) {
   const [dataList, setDataList] = useState([])

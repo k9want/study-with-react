@@ -396,7 +396,7 @@ ol {
   z-index: 75;
   box-shadow: 0 2px 4px 0 rgba(207, 207, 207, 0.5);
   background: #fff;
-  height: 64px;
+  height: 54px;
   min-height: unset; }
   .header-wrapper {
     display: flex;
@@ -424,6 +424,25 @@ ol {
 
 #logo {
   cursor: pointer; }
+
+.header-dropmenu-wrapper {
+  position: relative; }
+  .header-dropmenu-wrapper .header-dropmenu {
+    position: absolute;
+    width: 100px;
+    top: 32px;
+    right: 0;
+    z-index: 72;
+    background-color: #fff;
+    box-shadow: 0 2px 4px 0 #cfcfcf; }
+    .header-dropmenu-wrapper .header-dropmenu-item {
+      color: #9e9e9e;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.875rem;
+      padding: 0.5rem 1rem; }
+      .header-dropmenu-wrapper .header-dropmenu-item:hover {
+        color: #454545; }
 
 .banner {
   padding: 24px 12px;

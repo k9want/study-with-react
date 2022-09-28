@@ -18,7 +18,6 @@ function DetailArticle(props) {
       return
     }
 
-    console.log('계속')
     axios
       .get(`${url}/articles/8`, {
         headers: {

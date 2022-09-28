@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import useLoginModal from '../hooks/useLoginModal'
-
 function PostArticle(props) {
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    const accessToken = JSON.parse(localStorage.getItem('jwt'))
+    if (!accessToken) {
+      alert('로그인 후 이용가능합니다.')
+      navigate('/')
+      return
+    }
+  }, [])
+
   return (
     <main className="post-article" style={useLoginModal(props.loginModal)}>
       <div className="container">

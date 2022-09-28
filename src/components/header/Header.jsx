@@ -1,13 +1,37 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { url } from '../../config/url'
 import useLoginModal from '../../hooks/useLoginModal'
 import LoginModal from '../login/LoginModal'
+import HeaderDropMenu from './HeaderDropMenu'
 
 function Header(props) {
   const navigate = useNavigate()
   function handleClick() {
     navigate('/post')
   }
+
+  const [nickname, setNickname] = useState('')
+  const [isHidden, setIsHidden] = useState(true)
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem('jwt')
+    const userId = localStorage.getItem('userId')
+
+    if (!accessToken) return
+
+    const jwt = JSON.parse(accessToken)
+    axios
+      .get(`${url}/users/${userId}`, {
+        headers: {
+          'x-access-token': jwt,
+        },
+      })
+      .then((res) => {
+        setNickname(res.data.result.nickname)
+      })
+  })
 
   return (
     <>
@@ -44,13 +68,26 @@ function Header(props) {
               <div className="header-btn" onClick={handleClick}>
                 스터디 모집하기
               </div>
-
-              <div
-                className="header-btn"
-                onClick={() => props.setLoginModal(true)}
-              >
-                로그인
-              </div>
+              {nickname === '' ? (
+                <div
+                  className="header-btn"
+                  onClick={() => props.setLoginModal(true)}
+                >
+                  로그인
+                </div>
+              ) : (
+                <div className="header-dropmenu-wrapper">
+                  <div
+                    className="header-btn dropmenu-btn"
+                    onClick={() => {
+                      setIsHidden(!isHidden)
+                    }}
+                  >
+                    {nickname}
+                  </div>
+                  {isHidden ? null : <HeaderDropMenu />}
+                </div>
+              )}
             </div>
           </div>
         </div>

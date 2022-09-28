@@ -44,9 +44,8 @@ function LoginModal(props) {
       .then((res) => {
         localStorage.setItem('jwt', JSON.stringify(res.data.result.jwt))
         localStorage.setItem('userId', JSON.stringify(res.data.result.userId))
-        console.log(res.data.result)
         // console.log(res.data.result.userId, res.data.result.jwt)
-        alert('로그인 성공')
+        // alert('로그인 성공')
         props.setLoginModal(false)
         navigate('/')
       })
