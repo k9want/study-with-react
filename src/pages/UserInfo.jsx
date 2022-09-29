@@ -40,6 +40,7 @@ function UserInfo() {
 
       axios(config)
         .then((res) => {
+          window.location.reload()
           alert('내 정보가 수정되었습니다.')
         })
         .catch((err) => {

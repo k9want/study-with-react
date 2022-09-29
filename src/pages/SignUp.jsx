@@ -10,12 +10,12 @@ function SignUp() {
   const [email, setEmail] = useState('')
   const [pw, setPw] = useState('')
   const [pwConfirm, setPwConfirm] = useState('')
-  const [nickname, setnickname] = useState('')
+  const [nickname, setNickname] = useState('')
 
   const [emailValid, setEmailValid] = useState(false)
   const [pwValid, setPwValid] = useState([false, false, false])
   const [pwConfirmValid, setPwConfirmValid] = useState(false)
-  const [nicknameValid, setnicknameValid] = useState(false)
+  const [nicknameValid, setNicknameValid] = useState(false)
 
   // 비밀번호 password <-> text
   const [hiddenPw, setHiddenPw] = useState(true)
@@ -92,11 +92,11 @@ function SignUp() {
   }
 
   const handleNickname = (e) => {
-    setnickname(e.target.value)
+    setNickname(e.target.value)
     if (e.target.value.length < 2) {
-      setnicknameValid(false)
+      setNicknameValid(false)
     } else {
-      setnicknameValid(true)
+      setNicknameValid(true)
     }
   }
 
@@ -110,6 +110,7 @@ function SignUp() {
       })
       .then((res) => {
         alert('회원가입이 완료되었습니다. ')
+        window.location.replace('/')
       })
       .catch((err) => {
         alert('회원가입에 실패하셨습니다.')

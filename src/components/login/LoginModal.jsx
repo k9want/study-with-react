@@ -47,7 +47,7 @@ function LoginModal(props) {
         // console.log(res.data.result.userId, res.data.result.jwt)
         // alert('로그인 성공')
         props.setLoginModal(false)
-        navigate('/')
+        window.location.replace('/')
       })
       .catch((err) => {
         alert('이메일과 비밀번호를 확인해주세요.')

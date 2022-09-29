@@ -29,6 +29,15 @@ function Detail({ detailData }) {
       })
   }
 
+  const onClickEditArticleButton = (e) => {
+    if (detailData.status === 'COMPLETED') {
+      alert('모집완료된 글은 수정할 수 없습니다. ')
+    } else {
+      console.log(articleId)
+      navigation(`/articles/${articleId}/edit`)
+    }
+  }
+
   const onClickArticleCompleteButton = (e) => {
     if (detailData.status === 'COMPLETED') {
       alert('모집완료된 글은 수정할 수 없습니다. ')
@@ -102,7 +111,12 @@ function Detail({ detailData }) {
               </span>
             </div>
             <div className="detail-update-modal-btn-group">
-              <button className="detail-update-modal-btn">수정하기</button>
+              <button
+                className="detail-update-modal-btn"
+                onClick={onClickEditArticleButton}
+              >
+                수정하기
+              </button>
               <button
                 className="detail-update-modal-btn"
                 onClick={onClickArticleCompleteButton}

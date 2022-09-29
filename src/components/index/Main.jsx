@@ -13,41 +13,43 @@ function Main(props) {
   return (
     <main>
       <div className="container">
-        {props.dataList ? (
-          <div className="filter">
-            <div className="filter-left">
-              <div
-                className={
-                  'filter-item ' +
-                  (props.type === 'recent' ? 'is-active' : null)
-                }
-                onClick={() => props.setType('recent')}
-              >
-                최신순
-              </div>
-              <div
-                className={
-                  'filter-item ' +
-                  (props.type === 'popular' ? 'is-active' : null)
-                }
-                onClick={() => props.setType('popular')}
-              >
-                인기순
-              </div>
+        <div className="filter">
+          <div className="filter-left">
+            <div
+              className={
+                'filter-item ' + (props.type === 'recent' ? 'is-active' : null)
+              }
+              onClick={() => props.setType('recent')}
+            >
+              최신순
             </div>
-            <div className="filter-right">
-              <div
-                className={
-                  'filter-item ' +
-                  (props.containComplete === '' ? 'is-active' : null)
-                }
-                onClick={handleContainCompleteButton}
-              >
-                모집중인 게시글만 보기
-              </div>
+            <div
+              className={
+                'filter-item ' + (props.type === 'popular' ? 'is-active' : null)
+              }
+              onClick={() => props.setType('popular')}
+            >
+              인기순
             </div>
           </div>
-        ) : null}
+          <div className="filter-right">
+            {props.containComplete === '' ? (
+              <div
+                className={'filter-item is-active'}
+                onClick={handleContainCompleteButton}
+              >
+                모집 중인 게시글만 보기
+              </div>
+            ) : (
+              <div
+                className={'filter-item'}
+                onClick={handleContainCompleteButton}
+              >
+                모집완료도 함께 보기
+              </div>
+            )}
+          </div>
+        </div>
         <div className="card-list">
           {props.dataList ? (
             props.dataList.map((data, i) => {
