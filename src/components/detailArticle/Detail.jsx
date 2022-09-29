@@ -1,11 +1,13 @@
 import axios from 'axios'
-import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import { url } from '../../config/url'
 import useLoginInfo from '../../hooks/useLoginInfo'
+import PostComment from './PostComment'
 function Detail({ detailData }) {
   const { articleId } = useParams()
   const [accessToken, userId] = useLoginInfo()
+  const navigation = useNavigate()
 
   const [isDeleteModaldHidden, setIsDeleteModalHidden] = useState(true)
   const [isUpdateModaldHidden, setIsUpdateModalHidden] = useState(true)
@@ -28,21 +30,26 @@ function Detail({ detailData }) {
   }
 
   const onClickArticleCompleteButton = (e) => {
-    var config = {
-      method: 'patch',
-      url: `${url}/users/${userId}/articles/${articleId}/edit/completed`,
-      headers: {
-        'x-access-token': accessToken,
-      },
+    if (detailData.status === 'COMPLETED') {
+      alert('모집완료된 글은 수정할 수 없습니다. ')
+    } else {
+      var config = {
+        method: 'patch',
+        url: `${url}/users/${userId}/articles/${articleId}/edit/completed`,
+        headers: {
+          'x-access-token': accessToken,
+        },
+      }
+      axios(config)
+        .then((res) => {
+          setIsUpdateModalHidden(false)
+          alert('모집완료로 게시글이 수정되었습니다.')
+          window.location.reload()
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     }
-    axios(config)
-      .then((res) => {
-        setIsUpdateModalHidden(false)
-        window.location.reload()
-      })
-      .catch((err) => {
-        console.log(err)
-      })
   }
 
   return (
@@ -83,13 +90,7 @@ function Detail({ detailData }) {
         </div>
 
         <div className="description">{detailData.description}</div>
-        <div className="detail-textarea-wrapper">
-          <div className="detail-comment-header">댓글 작성</div>
-          <textarea rows="5" placeholder="이곳에 댓글을 입력하세요."></textarea>
-          <div className="detail-comment-btn-wrapper">
-            <button className="detail-comment-btn">완료</button>
-          </div>
-        </div>
+        <PostComment />
 
         {!isUpdateModaldHidden ? (
           <div className="detail-update-modal">
@@ -101,6 +102,7 @@ function Detail({ detailData }) {
               </span>
             </div>
             <div className="detail-update-modal-btn-group">
+              <button className="detail-update-modal-btn">수정하기</button>
               <button
                 className="detail-update-modal-btn"
                 onClick={onClickArticleCompleteButton}
