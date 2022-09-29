@@ -33,6 +33,10 @@ function PostArticle(props) {
     }
   }
 
+  const onClickCancelButton = (e) => {
+    navigate(-1)
+  }
+
   const onClickPostButton = (e) => {
     if (!titleValid) {
       alert('제목을 최소 5자리이상 입력해주세요')
@@ -110,7 +114,9 @@ function PostArticle(props) {
         </div>
 
         <div className="post-btn-group">
-          <div className="post-btn-item cancel">취소</div>
+          <div className="post-btn-item cancel" onClick={onClickCancelButton}>
+            취소
+          </div>
           <div className="post-btn-item confirm" onClick={onClickPostButton}>
             완료
           </div>
