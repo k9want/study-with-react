@@ -13,6 +13,7 @@ import axios from 'axios'
 import { url } from './config/url'
 import LikeArticle from './pages/LikeArticle'
 import UserInfo from './pages/UserInfo'
+import EditArticle from './pages/EditArticle'
 
 function App() {
   const [loginModal, setLoginModal] = useState(false)
@@ -29,6 +30,10 @@ function App() {
         <Route
           path="/articles/:articleId"
           element={<DetailArticle loginModal={loginModal} />}
+        ></Route>
+        <Route
+          path="/articles/:articleId/edit"
+          element={<EditArticle loginModal={loginModal} />}
         ></Route>
         <Route
           path="/signup"
