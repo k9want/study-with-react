@@ -4,13 +4,13 @@ import Card from '../components/index/Card'
 import { url } from '../config/url'
 import useLoginInfo from '../hooks/useLoginInfo'
 
-function UserArticle() {
+function LikeArticle() {
   const [accessToken, userId] = useLoginInfo()
   const [dataList, setDataList] = useState([])
 
   useEffect(() => {
     axios
-      .get(`${url}/users/${userId}/articles`, {
+      .get(`${url}/users/${userId}/likes`, {
         headers: {
           'x-access-token': accessToken,
         },
@@ -26,14 +26,14 @@ function UserArticle() {
   return (
     <div className="container">
       <div className="user-article">
-        <div className="user-article-header">내 모집 글 보기</div>
+        <div className="user-article-header">내 관심 글 보기</div>
         <div className="card-list">
           {dataList ? (
             dataList.map((data, i) => {
               return <Card data={data} key={data.articleId} />
             })
           ) : (
-            <div>아직 내 모집 글이 없습니다. </div>
+            <div>아직 내 관심 글이 없습니다. </div>
           )}
         </div>
       </div>
@@ -41,4 +41,4 @@ function UserArticle() {
   )
 }
 
-export default UserArticle
+export default LikeArticle

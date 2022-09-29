@@ -11,6 +11,8 @@ import SignUp from './pages/SignUp'
 import UserArticle from './pages/UserArticle'
 import axios from 'axios'
 import { url } from './config/url'
+import LikeArticle from './pages/LikeArticle'
+import UserInfo from './pages/UserInfo'
 
 function App() {
   const [loginModal, setLoginModal] = useState(false)
@@ -33,8 +35,22 @@ function App() {
           element={<SignUp loginModal={loginModal} />}
         ></Route>
         <Route
-          path="/userarticle"
+          path="/user/article"
           element={<UserArticle loginModal={loginModal} />}
+        ></Route>
+        {/* <Route
+          path="/user/likes"
+          element={<LikeArticle loginModal={loginModal} />}
+        ></Route> */}
+        <Route
+          path="/user/info"
+          element={<UserInfo loginModal={loginModal} />}
+        ></Route>
+        <Route
+          path="/*"
+          element={
+            <div className="container">해당 페이지를 찾을 수 없습니다.</div>
+          }
         ></Route>
       </Routes>
     </div>
